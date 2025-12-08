@@ -21,7 +21,7 @@ midi_out = rtmidi.MidiOut()
 available_ports = midi_out.get_ports()
 for i, port in enumerate(available_ports):
     print(f"Available MIDI Port {i}: {port}")
-    if "Noah" in port:
+    if "iPhone" in port:
         midi_out.open_port(i)
         print(f"Opened MIDI port: {port}")
 
