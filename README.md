@@ -183,7 +183,6 @@ Use read_piezo.py to see if the Pi is reading hits from piezo disks
         │                                             │
         │   Sensor Processing                         │
         │   • 8 Piezo ADC inputs (ADS1115 @ 0x48/49)  │
-        │   • VL53L1X theremin sensors                │
         │   • Threshold detection                     │
         │   • Generates MIDI notes                    │
         │                                             │
@@ -191,18 +190,32 @@ Use read_piezo.py to see if the Pi is reading hits from piezo disks
         │   • Sends MIDI over Wi-Fi                   │
         └───────────────┬────────────────────────────┘
                         │ Network MIDI (RTP-MIDI)
-                        ▼
-          ┌────────────────────────────────────┐
+                        ▼									
+          ┌────────────────────────────────────┐         
           │         MacBook (macOS)            │
           │────────────────────────────────────│
-          │ Audio MIDI Setup                   │
+          │ Theremin						   |
+		  |	 • Leap Motion API                 |
+		  |									   |
+		  |	Audio MIDI Setup                   │
           │  • Network Session "PiDrums"       │
-          │  • Participant: RaspberryPiMidi    │
-          │                                    │
+          │  • Participant: RaspberryPiMidi    |
+	      │  • Advertise as MIDI device via    |
+		  |    bluetooth					   |
+          │                                    |
           │ GarageBand                         │
           │  • Software Instrument Track       │
           │  • Line 1 = Drumset (Piezo pads)   │
-          │  • Line 2 = Theremin               │
+          │  • Input Monitoring ON             │
+          └────────────────────────────────────┘
+		                │ Bluetooth
+                        ▼									
+          ┌────────────────────────────────────┐         
+          │         iPhone (IOS)               │
+          │────────────────────────────────────│
+          │ GarageBand                         │
+          │  • Software Instrument Track       │
+          │  • Line 1 = Theremin               │
           │  • Input Monitoring ON             │
           └────────────────────────────────────┘
 
